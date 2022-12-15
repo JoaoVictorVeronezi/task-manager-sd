@@ -1,8 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import express from 'express';
-import mongoose from 'mongoose';
-import { routes } from './routes';
-import cors from 'cors';
+// import express from 'express';
+const express = require("express");
+const mongoose = require("mongoose");
+
+// import mongoose from 'mongoose';
+
+
+// import { routes } from './routes';
+// import cors from 'cors';
+const cors = require("cors")
+const routes = require("./routes.js")
 
 require('dotenv').config();
 

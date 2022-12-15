@@ -3,7 +3,7 @@
 // Prazo: data/hora que informa o limite para completar a tarefa.
 // Completa: valor lógico que define se a tarefa já foi completada.
 
-const jsonSchema = {
+const taskSchema = {
   desc: {
     type: String,
   },
@@ -15,4 +15,5 @@ const jsonSchema = {
   },
 };
 
-export { jsonSchema as taskSchema };
+module.exports = { taskSchema }
+

@@ -1,8 +1,12 @@
-import express, { Request, Response } from 'express';
-import { Task } from './persistence/models';
+// import express, { any, any } from 'express';
+const express = require("express");
+
+const Task = require('./persistence/models.js')
+
+// import { Task } from './persistence/models';
 const routes = express.Router();
 
-routes.get('/tarefas', async (req: Request, res: Response) => {
+routes.get('/tarefas', async (req, res) => {
   try {
     const tasks = await Task.find();
     res.status(200).json(tasks);
@@ -11,7 +15,7 @@ routes.get('/tarefas', async (req: Request, res: Response) => {
   }
 });
 
-routes.get('/tarefas/:id', async (req: Request, res: Response) => {
+routes.get('/tarefas/:id', async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -22,7 +26,7 @@ routes.get('/tarefas/:id', async (req: Request, res: Response) => {
   }
 });
 
-routes.delete('/tarefas/:id', async (req: Request, res: Response) => {
+routes.delete('/tarefas/:id', async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -34,7 +38,7 @@ routes.delete('/tarefas/:id', async (req: Request, res: Response) => {
   }
 });
 
-routes.put('/tarefas/:id', async (req: Request, res: Response) => {
+routes.put('/tarefas/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const data = req.body;
@@ -46,7 +50,7 @@ routes.put('/tarefas/:id', async (req: Request, res: Response) => {
   }
 });
 
-routes.post('/tarefas', async (req: Request, res: Response) => {
+routes.post('/tarefas', async (req, res) => {
   try {
     const data = req.body;
 
@@ -61,4 +65,4 @@ routes.post('/tarefas', async (req: Request, res: Response) => {
   }
 });
 
-export { routes };
+module.exports = routes;
